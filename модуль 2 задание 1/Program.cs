@@ -42,14 +42,11 @@ namespace модуль_2_задание_1
 
             }
             Console.WriteLine();
-            Console.WriteLine($"min = {arr[0]}, max = {arr[arr.Length - 1]}");
             Console.WriteLine($"summa = {sum}, proizvedenue = {proizvedenue}, summa chetnux elementov = {sum_chet_elem}");
 
             Random random = new Random();
-
             double[,] arr_2 = new double[3, 4];
-
-            double min = 1;
+            double min = 0;
             double max = 0;
             double podchet_stolbcob = 0;
 
@@ -58,8 +55,7 @@ namespace модуль_2_задание_1
                 for (int j = 0; j < arr_2.GetLength(1); j++)
 
                 {
-                    Console.Write($" {arr_2[i, j] = Math.Round( random.NextDouble() *10,2)} " );
-                    //Console.WriteLine();
+                    Console.Write($" {arr_2[i, j] = Math.Round( random.NextDouble() *10,0)} " ); // округление до 10                 
                     sum += arr_2[i, j];
                     proizvedenue *= arr_2[i,j];
 
@@ -67,24 +63,31 @@ namespace модуль_2_задание_1
                     {
                         podchet_stolbcob += arr_2[i, j];
                     }
-
-                    if (arr_2[0,0] > 0 && arr_2[i, j] < min)
-                    {
-                        min = arr_2[i, j];
-                    }
-                    if (arr_2[i, j] > max)
-                    {
-                        max = arr_2[i, j];
-                    }
-
                 }
                 Console.WriteLine();
             }
-           
-           // Console.WriteLine($"mun = {arr_2[0,0]}, max = {arr_2[arr_2.Length - 1,arr_2.Length-1]}");
-           Console.WriteLine($"summa = {sum}, proizvedenue = {proizvedenue}, summa nehetnux stolbcov = {podchet_stolbcob}, min = {min}" +
-               $" max = {max}");
+            for(int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr_2.GetLength(0); j++)
+                {
+                    for (int a = 0; a < arr_2.GetLength(1); a++)
+                    {
+                        if (arr[i] == arr_2[j, a])
+                        {
+                            if (min == 0 && max == 0) min = max = arr[i];
+                            else if (arr[i] > max) max = arr[i];
+                            else if (arr[i] < min) min = arr[i];
+                            Console.WriteLine(arr[i] + " ");
 
+                            
+                        }
+                    }
+                }
+            }
+           
+           
+           Console.WriteLine($"summa = {sum}, proizvedenue = {proizvedenue}, summa nehetnux stolbcov = {podchet_stolbcob}");
+            Console.WriteLine($"min = {min}, max = {max}");
         }
     }
 }
