@@ -27,7 +27,7 @@ namespace модуль_2_задание_1
 
             }
             Console.WriteLine();
-            Array.Sort(arr); // воспользовался тем что есть и не стал изобретать велосипед 
+           
 
             for (int i = 0; i < arr.Length; i++)
             {
