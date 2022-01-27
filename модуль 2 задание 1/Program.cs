@@ -45,7 +45,9 @@ namespace модуль_2_задание_1
             Console.WriteLine($"summa = {sum}, proizvedenue = {proizvedenue}, summa chetnux elementov = {sum_chet_elem}");
 
             Random random = new Random();
-            double[,] arr_2 = new double[3, 4];
+            int n = 3;
+            int m = 4;
+            double[,] arr_2 = new double[n, m];
             double min = 0;
             double max = 0;
             double podchet_stolbcob = 0;
@@ -55,14 +57,15 @@ namespace модуль_2_задание_1
                 for (int j = 0; j < arr_2.GetLength(1); j++)
 
                 {
-                    Console.Write($" {arr_2[i, j] = Math.Round( random.NextDouble() *10,0)} " ); // округление до 10                 
+                    Console.Write($" {arr_2[i, j] = Math.Round( random.NextDouble() *10,1)} " ); // округление до 10                 
                     sum += arr_2[i, j];
                     proizvedenue *= arr_2[i,j];
 
-                    if (j % 2 != 0)
+                    if ((j +1) % 2 !=0)
                     {
                         podchet_stolbcob += arr_2[i, j];
-                    }
+
+                    } 
                 }
                 Console.WriteLine();
             }
